@@ -58,3 +58,11 @@ yarn-error.log
 
 # VIM
 .*.sw[a-p]
+
+#-------------------#
+#   Project Files   #
+#-------------------#
+
+# Executables
+/server
+/server.exe
