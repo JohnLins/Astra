@@ -13,42 +13,12 @@ import (
 )
 
 /*
-type Coordinates struct {
-	latitude  int `json: "y"`
-}
-
-
-// We will move this function later, this is a placeholder
-
-func fetchSatelliteName(la, lo, z int) string {
-	fmt.Println(la, la, z)
-	//example
-	rangeGroup := 5
-
-	satellites, err := ioutil.ReadFile("./satellites.json")
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	var coordinates []Coordinates
-
-	err = json.Unmarshal(satellites, &coordinates)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	//Search la and lo in json
-
-	return ""
-}
-*/
-/*
 func section(x, y, x int)int {
 	if x < 0 {
 		if y < 0 {
 			if z < 0 {
 				//
-				return
+				return //selection number
 			}
 			if z >= 0 {
 				//
@@ -89,7 +59,18 @@ func section(x, y, x int)int {
 		}
 	}
 }
+*/
 
+/*
+func fetchSatelliteName(section int) string {
+
+	satellites, err := ioutil.ReadFile("./satellites.json")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return ""
+}
 */
 
 func main() {
