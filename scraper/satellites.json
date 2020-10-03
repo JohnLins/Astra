@@ -1,14 +1,14 @@
 {
     "1": {
-        "satellitename": "name",
+        "satellitename": "FAST",
         "velocity": ""
     },
     "2": {
-        "satellitename": "name",
+        "satellitename": "ACE",
         "velocity": ""
     },
     "3": {
-        "satellitename": "name",
+        "satellitename": "GOES",
         "velocity": ""
     },
     "4": {
@@ -16,11 +16,11 @@
         "velocity": ""
     },
     "5": {
-        "satellitename": "name",
+        "satellitename": "GOLD",
         "velocity": ""
     },
     "6": {
-        "satellitename": "name",
+        "satellitename": "Oersted",
         "velocity": ""
     },
     "7": {
