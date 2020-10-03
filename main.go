@@ -61,17 +61,15 @@ func section(x, y, x int)int {
 }
 */
 
-/*
-func fetchSatelliteName(section int) string {
+func fetchSatelliteName(x, y, cax, cay int) string {
 
-	satellites, err := ioutil.ReadFile("./satellites.json")
+	/*satellites, err := ioutil.ReadFile("./satellites.json")
 	if err != nil {
 		fmt.Println(err)
-	}
+	}*/
 
 	return ""
 }
-*/
 
 func main() {
 	fmt.Println("Astra Server")
@@ -94,13 +92,20 @@ func main() {
 			return
 		}
 
-		zed, err := strconv.Atoi(r.URL.Query().Get("zed"))
+		laCameraAngle, err := strconv.Atoi(r.URL.Query().Get("laCameraAngle"))
 		if err != nil {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
-		_ = fetchSatelliteName(latitude, longitude, zed)
+		loCameraAngle, err := strconv.Atoi(r.URL.Query().Get("loCameraAngle"))
+		if err != nil {
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+
+		satelliteName := fetchSatelliteName(latitude, longitude, laCameraAngle, loCameraAngle)
+		fmt.Println(satelliteName)
 
 		// TODO: Replace "GOES" with satelliteName
 		satellite, err := s.Scrape("GOES")
