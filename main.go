@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/AstraApp/server/scraper"
@@ -12,103 +13,119 @@ import (
 	"github.com/go-chi/chi/middleware"
 )
 
-/*
-func section(x, y, x int)int {
+func section(x, y, z int) string {
 	if x < 0 {
 		if y < 0 {
 			if z < 0 {
-				//
-				return //selection number
+				return "3"
 			}
 			if z >= 0 {
-				//
-				return
+				return "7"
 			}
 		}
 		if y >= 0 {
 			if z < 0 {
-				//
-				return
+				return "1"
 			}
 			if z >= 0 {
-				//
-				return
+				return "5"
 			}
 		}
 	}
 	if x >= 0 {
 		if y < 0 {
 			if z < 0 {
-				//
-				return
+				return "4"
 			}
 			if z >= 0 {
-				//
-				return
+				return "8"
 			}
 		}
 		if y >= 0 {
 			if z < 0 {
-				//
-				return
+				return "2"
 			}
 			if z >= 0 {
-				//
-				return
+				return "6"
 			}
 		}
 	}
-}
-*/
-
-func fetchSatelliteName(x, y, cax, cay int) string {
-
-	/*satellites, err := ioutil.ReadFile("./satellites.json")
-	if err != nil {
-		fmt.Println(err)
-	}*/
-
 	return ""
+}
+
+// Section .
+type Section struct {
+	Name     string `json:"satellitename"`
+	Velocity string `json:"velocity"`
+	Image    string `json:"image"`
+}
+
+//section ranges from "1" to "8" (The sections in json)
+//	Name, Velocity, ImageURL
+func fetchSection(section string) (*Section, error) {
+	//section := section(x, y, z)
+	file, err := os.Open("./satellites.json")
+	if err != nil {
+		return nil, err
+	}
+
+	var satellites map[string][]Section
+	if err := json.NewDecoder(file).Decode(&satellites); err != nil {
+		return nil, err
+	}
+
+	for key, sections := range satellites {
+		// Satellite name
+		if key != section {
+			continue
+		}
+
+		// Satellite sections
+		for i := 0; i < len(sections); i++ {
+			fmt.Println("Name: " + sections[i].Name)
+			fmt.Println("Velocity: " + sections[i].Velocity)
+			fmt.Println("Image: " + sections[i].Image)
+			return &sections[i], nil
+		}
+	}
+
+	return nil, nil
 }
 
 func main() {
 	fmt.Println("Astra Server")
 
-	s := scraper.New()
+	scraper := scraper.New()
 
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		latitude, err := strconv.Atoi(r.URL.Query().Get("latitude"))
+		x, err := strconv.Atoi(r.URL.Query().Get("x"))
 		if err != nil {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
-		longitude, err := strconv.Atoi(r.URL.Query().Get("longitude"))
+		y, err := strconv.Atoi(r.URL.Query().Get("y"))
 		if err != nil {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
-		laCameraAngle, err := strconv.Atoi(r.URL.Query().Get("laCameraAngle"))
+		z, err := strconv.Atoi(r.URL.Query().Get("z"))
 		if err != nil {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
 
-		loCameraAngle, err := strconv.Atoi(r.URL.Query().Get("loCameraAngle"))
+		section, err := fetchSection(section(x, y, z))
 		if err != nil {
-			w.WriteHeader(http.StatusBadRequest)
+			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
 
-		satelliteName := fetchSatelliteName(latitude, longitude, laCameraAngle, loCameraAngle)
-		fmt.Println(satelliteName)
-
-		// TODO: Replace "GOES" with satelliteName
-		satellite, err := s.Scrape("GOES")
+		satellite, err := scraper.Scrape(section.Name)
 		if err != nil {
 			fmt.Println(err.Error())
 			w.WriteHeader(http.StatusInternalServerError)
@@ -121,7 +138,6 @@ func main() {
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
-
 		w.Write(b)
 	})
 

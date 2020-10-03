@@ -1,34 +1,65 @@
 {
-    "1": {
-        "satellitename": "FAST",
-        "velocity": ""
-    },
-    "2": {
-        "satellitename": "ACE",
-        "velocity": ""
-    },
-    "3": {
-        "satellitename": "GOES",
-        "velocity": ""
-    },
-    "4": {
-        "satellitename": "name",
-        "velocity": ""
-    },
-    "5": {
-        "satellitename": "GOLD",
-        "velocity": ""
-    },
-    "6": {
-        "satellitename": "Oersted",
-        "velocity": ""
-    },
-    "7": {
-        "satellitename": "name",
-        "velocity": ""
-    },
-    "8": {
-        "satellitename": "name",
-        "velocity": ""
-    }
+	"1": [
+		{
+			"satellitename": "FAST",
+			"velocity": "m/s",
+			"image": "https://www.daviddarling.info/images/FAST.jpg"
+		}
+	],
+
+	"2": [
+		{
+			"satellitename": "ACE",
+			"velocity": "m/s",
+			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Advanced_Composition_Explorer.jpg/230px-Advanced_Composition_Explorer.jpg"
+		}
+	],
+
+	"3": [
+		{
+			"satellitename": "GOES",
+			"velocity": "4430 m/s",
+			"image": "https://img.favpng.com/25/16/15/geostationary-operational-environmental-satellite-weather-satellite-goes-16-png-favpng-04VEAEATWNL6fFi5YAQRsy9jZ.jp"
+		}
+	],
+
+	"4": [
+		{
+			"satellitename": "ISS",
+			"velocity": "7700 m/s",
+			"image": "https://cdn.worldsciencefestival.com/wp-content/uploads/2014/05/GALACTIC-CLASSROOM-SCIENCE-ABOARD-THE-INTERNATIONAL-SPACE-STATION.jpg"
+		}
+	],
+
+	"5": [
+		{
+			"satellitename": "GOLD",
+			"velocity": "m/s",
+			"image": "https://ses-gs.com/wp-content/uploads/2017/12/SES14_fd_noir_042015-1500x525.png"
+		}
+	],
+
+	"6": [
+		{
+			"satellitename": "OERSTED",
+			"velocity": "m/s",
+			"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTye8632FdZc8yXSViBvBG8dDabiCsxu39K3Q&usqp=CAU"
+		}
+	],
+
+	"7": [
+		{
+			"satellitename": "ELFIN-A",
+			"velocity": "m/s",
+			"image": "https://images.squarespace-cdn.com/content/v1/5b3bd5a9266c077a5bdfcafd/1579031116870-BD0UGULOLDUG0P182RDB/ke17ZwdGBToddI8pDm48kJanlAjKydPZDDRBEy8QTGN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0hveExjbswnAj1UrRPScjfAi-WHBb3R4axoAEB7lfybbrcBqLQ3Qt4YGS4XJxXD2Ag/ELFIN-twin-probes-aurora.jpg"
+		}
+	],
+
+	"8": [
+		{
+			"satellitename": "STEREO B",
+			"velocity": "m/s",
+			"image": "https://s1.ibtimes.com/sites/www.ibtimes.com/files/styles/full/public/2016/08/23/stereospacecraftnasa.jpg"
+		}
+	]
 }

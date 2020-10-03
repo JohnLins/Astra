@@ -6,6 +6,7 @@ import (
 
 // Satellite .
 type Satellite struct {
+
 	// Spase .
 	Spase struct {
 		// Version .
