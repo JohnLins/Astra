@@ -2,7 +2,7 @@
 	"1": [
 		{
 			"satellitename": "FAST",
-			"velocity": "m/s",
+			"velocity": "6360 m/s",
 			"image": "https://www.daviddarling.info/images/FAST.jpg"
 		}
 	],
@@ -10,7 +10,7 @@
 	"2": [
 		{
 			"satellitename": "ACE",
-			"velocity": "m/s",
+			"velocity": "3870 m/s",
 			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Advanced_Composition_Explorer.jpg/230px-Advanced_Composition_Explorer.jpg"
 		}
 	],
@@ -34,7 +34,7 @@
 	"5": [
 		{
 			"satellitename": "GOLD",
-			"velocity": "m/s",
+			"velocity": "3090 m/s",
 			"image": "https://ses-gs.com/wp-content/uploads/2017/12/SES14_fd_noir_042015-1500x525.png"
 		}
 	],
@@ -42,7 +42,7 @@
 	"6": [
 		{
 			"satellitename": "OERSTED",
-			"velocity": "m/s",
+			"velocity": "7510 m/s",
 			"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTye8632FdZc8yXSViBvBG8dDabiCsxu39K3Q&usqp=CAU"
 		}
 	],
@@ -50,15 +50,15 @@
 	"7": [
 		{
 			"satellitename": "ELFIN-A",
-			"velocity": "m/s",
+			"velocity": "7640 m/s",
 			"image": "https://images.squarespace-cdn.com/content/v1/5b3bd5a9266c077a5bdfcafd/1579031116870-BD0UGULOLDUG0P182RDB/ke17ZwdGBToddI8pDm48kJanlAjKydPZDDRBEy8QTGN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0hveExjbswnAj1UrRPScjfAi-WHBb3R4axoAEB7lfybbrcBqLQ3Qt4YGS4XJxXD2Ag/ELFIN-twin-probes-aurora.jpg"
 		}
 	],
 
 	"8": [
 		{
-			"satellitename": "STEREO B",
-			"velocity": "m/s",
+			"satellitename": "STEREO-B",
+			"velocity": "3070 m/s",
 			"image": "https://s1.ibtimes.com/sites/www.ibtimes.com/files/styles/full/public/2016/08/23/stereospacecraftnasa.jpg"
 		}
 	]

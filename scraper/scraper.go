@@ -2,6 +2,7 @@ package scraper
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 )
 
@@ -21,6 +22,7 @@ func New() *Scraper {
 // Scrape .
 func (*Scraper) Scrape(satelliteName string) (*Satellite, error) {
 	url := "https://hpde.io/SMWG/Observatory/" + satelliteName + ".json"
+	log.Print(url)
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err

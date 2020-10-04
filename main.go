@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"strconv"
@@ -64,7 +65,7 @@ type Section struct {
 //	Name, Velocity, ImageURL
 func fetchSection(section string) (*Section, error) {
 	//section := section(x, y, z)
-	file, err := os.Open("./satellites.json")
+	file, err := os.Open("scraper/satellites.json")
 	if err != nil {
 		return nil, err
 	}
@@ -95,11 +96,12 @@ func fetchSection(section string) (*Section, error) {
 func main() {
 	fmt.Println("Astra Server")
 
-	scraper := scraper.New()
+	s := scraper.New()
 
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
+	//http://127.0.0.1:8080/?x=5&y=-8&z=3
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		x, err := strconv.Atoi(r.URL.Query().Get("x"))
 		if err != nil {
@@ -121,20 +123,35 @@ func main() {
 
 		section, err := fetchSection(section(x, y, z))
 		if err != nil {
+			log.Print(err.Error())
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
 
-		satellite, err := scraper.Scrape(section.Name)
+		satellite, err := s.Scrape(section.Name)
 		if err != nil {
-			fmt.Println(err.Error())
+			log.Print(err.Error())
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
 
-		b, err := json.MarshalIndent(satellite, "", "\t")
+		b, err := json.MarshalIndent(struct {
+			Name         string
+			Velocity     string
+			Image        string
+			ResourceID   string
+			ResourceName string
+			Description  string
+		}{
+			section.Name,
+			section.Velocity,
+			section.Image,
+			satellite.Spase.Observatory.ResourceID,
+			satellite.Spase.Observatory.ResourceHeader.ResourceName,
+			satellite.Spase.Observatory.ResourceHeader.Description,
+		}, "", "\t")
 		if err != nil {
-			fmt.Println(err.Error())
+			log.Print(err.Error())
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
