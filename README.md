@@ -1,4 +1,6 @@
 # Astra Server
+
+How to clone repo without it being a fork and while saving the git history
 Input example: `http://127.0.0.1:8080/?x=5&y=-8&z=-3`
 
 Response example: `{
