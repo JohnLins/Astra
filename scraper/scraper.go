@@ -6,7 +6,6 @@ import (
 	"net/http"
 )
 
-// JSON to GO: https://mholt.github.io/json-to-go/
 // LIST: https://spdf.gsfc.nasa.gov/data_orbits.html
 // EXAMPLE: https://hpde.io/SMWG/Observatory/GOES.json
 
