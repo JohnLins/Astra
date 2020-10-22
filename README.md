@@ -12,4 +12,15 @@ Response example: `{
 }`
 
 
-<img src="diagram.png"/>
+<img src="screenshots/gallery.png"/>
+
+
+# Frontend
+This API is tailored to the following frontend, created using Flutter:
+
+<img src="screenshots/a.png"/>
+
+<img src="screenshots/b.png"/>
+
+<img src="screenshots/c.png"/>
+
