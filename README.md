@@ -12,7 +12,7 @@ Response example: `{
 }`
 
 
-<img src="screenshots/gallery.png"/>
+<img src="screenshots/gallery.jpg"/>
 
 
 # Frontend
