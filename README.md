@@ -2,6 +2,8 @@
 
 Input example: `http://127.0.0.1:8080/?x=5&y=-8&z=-3`
 
+The x, y, and z params represent the user's coordinates in 3D space.
+
 Response example: `{
     "Name": "GOES",
     "Velocity": "4430 m/s",
